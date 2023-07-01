@@ -4,6 +4,7 @@ import { config } from "dotenv";
 import cors from "cors";
 
 import Deck from "./models/Deck";
+import deckRouter from "./routes/deckRoutes";
 
 config();
 
@@ -12,16 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post("/decks", async (req: Request, res: Response) => {
-	const newDeck = new Deck(req.body);
-	const createdDeck = await newDeck.save();
-	res.json(createdDeck);
-});
-
-app.get("/decks", async (req: Request, res: Response) => {
-	const decks = await Deck.find({});
-	res.json(decks);
-});
+app.use("/decks", deckRouter);
 
 const port = process.env.PORT || 5000;
 
