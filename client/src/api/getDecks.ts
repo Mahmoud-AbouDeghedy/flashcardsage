@@ -1,4 +1,4 @@
-// import { apiURL } from "./config";
+import { apiURL } from "./config";
 
 export type TDeck = {
 	title: string;
@@ -7,6 +7,6 @@ export type TDeck = {
 };
 
 export async function getDecks(): Promise<TDeck[]> {
-	const res = await fetch(`/decks`);
+	const res = await fetch(`${apiURL}/decks`);
 	return res.json();
 }

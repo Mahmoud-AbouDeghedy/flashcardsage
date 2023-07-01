@@ -1,7 +1,7 @@
-// import { apiURL } from "./config";
+import { apiURL } from "./config";
 
 export const deleteDeck = async (id: string) => {
-	await fetch(`/decks/${id}`, {
+	await fetch(`${apiURL}/decks/${id}`, {
 		method: "DELETE",
 	});
 };
