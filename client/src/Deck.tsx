@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import "./App.css";
+import "./Deck.css";
 import { createCard } from "./api/createCard";
 import { TDeck } from "./api/getDecks";
 import { getDeck } from "./api/getDeck";
@@ -15,7 +15,8 @@ export default function Deck() {
 
 	const handleCreateDeck = async (e: React.FormEvent) => {
 		e.preventDefault();
-		const { cards: serverCards } = await createCard(deckId!, text);
+		if (!deckId) return;
+		const { cards: serverCards } = await createCard(deckId, text);
 		setText("");
 		setCards(serverCards);
 	};
@@ -37,11 +38,19 @@ export default function Deck() {
 	}, [deckId]);
 
 	return (
-		<div className="App">
+		<div className="Deck">
+			<h1>{deck?.title}</h1>
 			<ul className="cards">
 				{cards.map((card, index) => (
 					<li key={index}>
-						<button onClick={() => handleDeleteCard(deckId!, index)}>X</button>
+						<button
+							onClick={() => {
+								if (!deckId) return;
+								handleDeleteCard(deckId, index);
+							}}
+						>
+							X
+						</button>
 						{card}
 					</li>
 				))}
