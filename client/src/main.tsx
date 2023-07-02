@@ -9,11 +9,11 @@ import "./index.css";
 
 const router = createBrowserRouter([
 	{
-		path: "https://flashcardsage.onrender.com/",
+		path: "/",
 		element: <App />,
 	},
 	{
-		path: "https://flashcardsage.onrender.com/decks/:deckId",
+		path: "/decks/:deckId",
 		element: <Deck />,
 	},
 ]);
