@@ -4,8 +4,8 @@
 	"description": "FlashCardSage is a web application for creating and managing flashcard decks. It allows users to create decks, add flashcards to them, and study the flashcards.",
 	"main": "index.js",
 	"scripts": {
-		"start": "cd server && npm run start",
-		"build": "cd server && npm install && npm run build && cd ../client && npm install && npm run build"
+		"start": "cd server && npm install && npm run build && npm run start",
+		"build": " cd client && npm install && npm run build"
 	},
 	"keywords": [],
 	"author": "",
