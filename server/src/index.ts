@@ -11,12 +11,12 @@ config();
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "..", "client", "dist")));
+app.use(express.static(path.resolve(__dirname, "..", "client", "dist")));
 
 app.use(cors({ origin: "*" }));
 app.use("/decks", deckRouter);
 app.get("*", (req, res) => {
-	res.sendFile(path.join("..", "client", "dist", "index.html"));
+	res.sendFile(path.resolve(__dirname, "..", "client", "dist", "index.html"));
 });
 
 const port = process.env.PORT || 3000;
