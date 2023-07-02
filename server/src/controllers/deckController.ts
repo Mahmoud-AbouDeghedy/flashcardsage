@@ -3,7 +3,6 @@ import { Request, Response } from "express";
 
 export const getAllDecks = async (req: Request, res: Response) => {
 	const decks = await Deck.find({});
-	console.log(req.url);
 	res.json(decks);
 };
 
