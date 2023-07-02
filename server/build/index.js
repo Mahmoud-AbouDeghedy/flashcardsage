@@ -12,7 +12,7 @@ const deckRoutes_1 = __importDefault(require("./routes/deckRoutes"));
 (0, dotenv_1.config)();
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use(express_1.default.static(path_1.default.resolve("../client/dist/index.html")));
+app.use(express_1.default.static(path_1.default.resolve("../client/dist")));
 app.use((0, cors_1.default)());
 app.use("/decks", deckRoutes_1.default);
 const port = process.env.PORT || 3000;

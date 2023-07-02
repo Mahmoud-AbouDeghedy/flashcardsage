@@ -11,7 +11,7 @@ config();
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.resolve("../client/dist/index.html")));
+app.use(express.static(path.resolve("../client/dist")));
 
 app.use(cors());
 app.use("/decks", deckRouter);
