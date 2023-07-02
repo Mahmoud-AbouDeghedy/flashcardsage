@@ -4,7 +4,6 @@ import { config } from "dotenv";
 import cors from "cors";
 import path from "path";
 
-import Deck from "./models/Deck";
 import deckRouter from "./routes/deckRoutes";
 
 config();
@@ -12,7 +11,7 @@ config();
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
+app.use(express.static(path.join(__dirname, "..", "client", "dist")));
 
 app.use(cors({ origin: "*" }));
 app.use("/decks", deckRouter);
